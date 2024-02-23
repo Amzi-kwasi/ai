@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Doc</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<style type="text/css">
+	*{
+		margin: 0;
+		overflow-x: hidden;
+	}
+
+	#header{
+		width: 100%;
+		padding: 10px 12px;
+		background: #086dba;
+		position: fixed;
+		text-align: center;
+		top: 0;
+		color: white;
+	}
+
+	#textarea{
+		margin-top: 150px;
+		padding-top: 20px;
+		padding-left: 10px;
+		padding-right: 10px;
+		width: 100%;
+		font-size: 15px;
+		border: none;
+		background: whitesmoke;
+		height: 100vh;
+	}
+
+	#kits{
+		width: 100%;
+		background: #3295e2;
+		color: white;
+		padding: 10px 12px;
+		position: fixed;
+		top: 35px;
+		overflow: scroll;
+		white-space: nowrap;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		scroll-behavior: smooth;
+	}
+
+
+	#kits a{
+		padding: 10px 12px;
+		font-size: 16px;
+		cursor: pointer;
+		font-family: serif;
+	}
+
+	#fonts{
+		position: fixed;
+		overflow: scroll;
+		white-space: nowrap;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		scroll-behavior: smooth;
+		top: 90px;
+		background: whitesmoke;
+		padding: 10px 12px;
+		width: 100%;
+		cursor: pointer;
+	}
+
+	#paragraph{
+		position: fixed;
+		overflow: scroll;
+		white-space: nowrap;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		scroll-behavior: smooth;
+		top: 90px;
+		background: whitesmoke;
+		padding: 10px 12px;
+		width: 100%;
+		cursor: pointer;
+	}
+
+	.none{
+		display: none;
+	}
+</style>
+<body onload="Loading()">
+<div id="header">
+	<a>Document</a>
+</div>
+
+<div id="kits">
+	<a onclick="Fonts()">Font</a>
+	<a onclick="Para()">Paragraph</a>
+	<a>View</a>
+	<a>Style</a>
+	<a>Insert</a>
+	<a>Help</a>
+	<a>Pen</a>
+	<a>Review</a>
+</div>
+
+
+<div id="fonts">
+
+	<b style="padding: 10px 12px" onclick="bolding()" title="bold" id="bld">B</b>
+
+	<i style="padding: 10px 12px" onclick="Italics()" title="Italics" id="itl">I</i>
+
+
+	<a style="padding: 10px 12px;text-decoration: underline;" title="underline" onclick="Underline()" id="udl">U</a>
+
+
+    <a style="padding: 8px 20px;color: red;font-weight: 400;font-size: 19px;" title="text color" id="col">A
+    	<input id="color" type="color" oninput="textC()" name=""></a>
+
+    	<a style="padding: 8px 20px;color: purple;font-weight: 400;font-size: 19px;" title="background color" id="bg">Bg
+    	<input id="bgc" type="color" oninput="bgC()" value="#0D0D0D"></a>
+
+
+    	<a style="padding: 10px 12px;">
+    		Aa
+    <select id="case" title="change case" style="width: 50px" onchange="Changecase()">Aa
+<option value="unset">unset</option>
+<option value="lowercase">lowercase</option>
+<option value="uppercase">UPPERCASE</option>
+<option value="capitalize">Capitalize</option>
+    </select>
+</a>    
+
+
+<a style="padding: 10px 12px" title="font-size">A+
+
+<select title="font-size" id="size" onchange="Sizing()">
+<option value="8px">8</option>
+<option value="9px">9</option>
+<option value="10px">10</option>
+<option value="11px">11</option>
+<option value="12px">12</option>
+<option value="14px">14</option>
+<option value="16px">16</option>
+<option value="18px">18</option>
+<option value="20px">20</option>
+<option value="22px">22</option>
+<option value="24px">24</option>
+<option value="26px">26</option>
+<option value="28px">28</option>
+<option value="36px">36</option>
+<option value="48px">48</option>
+<option value="72px">72</option>
+</select>
+</a>
+</div>
+
+
+
+<div id="paragraph" class="none">
+
+
+	<a style="padding: 10px 12px" onclick="right()" title="right" id="rht"><i class="fa fa-align-right"></i></a>
+
+	<a style="padding: 10px 12px" onclick="left()" title="left" id="lft"><i class="fa fa-align-left"></i></a>
+
+	<a style="padding: 10px 12px" onclick="center()" title="center" id="cent"><i class="fa fa-align-center"></i></a>
+
+	<a style="padding: 10px 12px" onclick="justify()" title="justify" id="just"><i class="fa fa-align-justify"></i></a>
+
+</div>
+
+
+<div>
+	<textarea id="textarea" placeholder="|" onkeyup="textSave()" spellcheck="off" autocomplete="on" wrap="on">
+		
+	</textarea>
+</div>
+</body>
+
+<script type="text/javascript">
+
+	function Loading(){
+
+    var textarea=document.getElementById("textarea");
+
+    textarea.value=localStorage.getItem("textstore")
+
+    textarea.style.fontWeight=localStorage.getItem("bold")
+
+
+      textarea.style.fontStyle=localStorage.getItem("italic")
+
+       textarea.style.textDecoration=localStorage.getItem("underline")
+
+textarea.style.color=document.getElementById("color").value=localStorage.getItem("doc_color");
+
+
+textarea.style.background=document.getElementById("bgc").value=localStorage.getItem("doc_bgcolor");
+
+
+
+textarea.style.textTransform=document.getElementById("case").value=localStorage.getItem("casing");
+
+
+textarea.style.fontSize=document.getElementById("size").value=localStorage.getItem("sizing");
+
+
+document.getElementById("col").style.color=document.getElementById("color").value;
+
+
+document.getElementById("bg").style.color=document.getElementById("bgc").value;
+
+	
+	textarea.style.textAlign=localStorage.getItem("right");
+
+
+
+if(left){
+	textarea.style.textAlign=localStorage.getItem("left");
+}
+
+
+if(center){
+	textarea.style.textAlign=localStorage.getItem("center");
+}
+
+if(justify){
+	textarea.style.textAlign=localStorage.getItem("justify");
+}
+
+
+	}
+
+
+	function textSave(){
+		var textarea=document.getElementById("textarea");
+		localStorage.setItem("textstore",textarea.value);
+	}
+
+	function bolding(){
+		var textarea=document.getElementById("textarea");
+		var style=textarea.style.fontWeight="bold";
+
+		localStorage.setItem("bold", style);
+
+
+var bld=document.getElementById("bld");
+
+bld.addEventListener("dblclick",()=>{
+	localStorage.removeItem("bold")
+	window.location.reload();
+})
+
+	}
+
+	function Italics(){
+		var textarea=document.getElementById("textarea");
+		var style=textarea.style.fontStyle="italic";
+		localStorage.setItem("italic", style)
+var itl=document.getElementById("itl");
+
+itl.addEventListener("dblclick",()=>{
+	localStorage.removeItem("italic")
+	window.location.reload();
+
+})
+
+
+	}
+
+	function Underline(){
+		var textarea=document.getElementById("textarea");
+		var style=textarea.style.textDecoration="underline";
+		localStorage.setItem("underline", style)
+var udl=document.getElementById("udl");
+
+udl.addEventListener("dblclick",()=>{
+	localStorage.removeItem("underline")
+	window.location.reload();
+
+})
+	}
+
+	function textC(){
+		var textarea=document.getElementById("textarea");
+		var color=document.getElementById("color");
+
+		var style=textarea.style.color=color.value;
+
+		var kit=document.getElementById("col")
+        kit.style.color=color.value;
+
+		localStorage.setItem("doc_color", style)
+		
+
+	}
+
+	function bgC(){
+		var textarea=document.getElementById("textarea");
+		var bgC=document.getElementById("bgc");
+
+		var style=textarea.style.background=bgC.value;
+
+		var kit=document.getElementById("bg")
+        kit.style.color=bgC.value;
+
+		localStorage.setItem("doc_bgcolor", style)
+		
+
+	}
+
+	function Changecase(){
+		var textarea=document.getElementById("textarea");
+
+		var casing=document.getElementById("case");
+		var style=textarea.style.textTransform=casing.value;
+		localStorage.setItem("casing", style)
+	}
+
+	function Sizing(){
+		var textarea=document.getElementById("textarea");
+
+		var sizing=document.getElementById("size");
+		var style=textarea.style.fontSize=sizing.value;
+		localStorage.setItem("sizing", style)
+	}
+
+
+
+
+
+
+
+
+function Fonts(){
+	var fonts=document.getElementById("fonts");
+	var paragraph=document.getElementById("paragraph");
+
+	fonts.style.display="block";
+	paragraph.style.display="none"
+}
+
+function Para(){
+	var fonts=document.getElementById("fonts");
+	var paragraph=document.getElementById("paragraph");
+
+	fonts.style.display="none";
+	paragraph.style.display="block"
+}
+
+
+
+
+function right(){
+		var textarea=document.getElementById("textarea");
+		var style=textarea.style.textAlign="right";
+
+		localStorage.setItem("right", style);
+
+
+var rht=document.getElementById("rht");
+
+rht.addEventListener("dblclick",()=>{
+	localStorage.removeItem("right")
+	window.location.reload();
+})
+
+	}
+
+
+
+function left(){
+		var textarea=document.getElementById("textarea");
+		var style=textarea.style.textAlign="left";
+
+		localStorage.setItem("left", style);
+
+
+var lft=document.getElementById("lft");
+
+lft.addEventListener("dblclick",()=>{
+	localStorage.removeItem("left")
+	window.location.reload();
+})
+
+	}
+
+
+
+function center(){
+		var textarea=document.getElementById("textarea");
+		var style=textarea.style.textAlign="center";
+
+		localStorage.setItem("center", style);
+
+
+var cent=document.getElementById("cent");
+
+cent.addEventListener("dblclick",()=>{
+	localStorage.removeItem("center")
+	window.location.reload();
+})
+
+	}
+
+
+
+function justify(){
+		var textarea=document.getElementById("textarea");
+		var style=textarea.style.textAlign="justify";
+
+		localStorage.setItem("justify", style);
+
+
+var just=document.getElementById("just");
+
+just.addEventListener("dblclick",()=>{
+	localStorage.removeItem("justify")
+	window.location.reload();
+})
+
+	}
+
+
+
+</script>
+</html>

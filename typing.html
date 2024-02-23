@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Typing Studio</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            background: cornsilk;
+
+
+        }
+        .preloader {
+            background: black;
+            text-align: center;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            color: coral;
+        }
+
+        .txt {
+            margin-top: 250px;
+            font-family: sans-serif;
+            font-size: 30px;
+            background: none;
+        }
+
+
+        .typing {
+            width: 100%;
+            position: absolute;
+            padding-top: 30px;
+            padding-bottom: 20px;
+            background: cornsilk;
+            text-align: center;
+            margin-top: 125px;
+            font-family: serif;
+
+        }
+
+        .a {
+            font-size: 30px;
+            color: green;
+            text-align: center;
+            user-select: none;
+            background: none;
+        }
+
+        .type {
+            width: 100%;
+            font-size: 30px;
+            text-align: center;
+            height: 50px;
+            border: none;
+            padding-left: 20px;
+            padding-right: 20px;
+            background: white;
+        }
+
+        .retry {
+            border: none;
+            padding: 10px 12px;
+            background: red;
+            color: white;
+            border-radius: 20px;
+            cursor: pointer;
+            position: fixed;
+            right: 40%;
+            display: none;
+            left: 40%;
+        }
+        .pause {
+            border:1px solid green;
+            display: none;
+            padding: 12px 16px;
+            background: transparent;
+            color: black;
+            border-radius: 20px;
+            cursor: pointer;
+            position: fixed;
+            right: 40%;
+            left: 40%;
+        }
+
+        .nav {
+            background: black;
+            padding: 10px 12px;
+            width: 100%;
+            float: left;
+            font-size: 20px;
+            color: coral;
+            font-family: cursive;
+            position: fixed;
+        }
+        #x{
+            text-align: center;
+            font-size: 25px;
+            color: orange;
+            background: none;
+        }
+    </style>
+</head>
+<body onload="boD()">
+    <!-- preloader -->
+    <div class="preloader" id="preloader" onload="Pre()">
+        <h3 class="txt">Typing Studio</h3>
+    </div>
+
+    <!-- main page -->
+    <div id="main" style="display: none;">
+        <div class="nav">
+            <a style="background:none;">Typing Studio</a>
+        </div>
+        <div class="typing" id="fc">
+            <p id="txt" style="background:none;">Click on the input to see text </br>Type the text in <a style="font-size:20px;color:orange;background: none;" id="time"> seconds</a>:
+            </p>
+            
+            
+            <br />
+            <p id="x"></p>
+            <br/>
+            <a id="a" class="a"></a>
+            <br />
+            
+            <input type="text"  autocomplete="off" class="type" onclick="Int()" id="inpV">
+            <br>
+            <br>
+               <button id="pause" class="pause">Pause</button>
+                              <button id="resume" class="pause">Resume</button>
+
+   <button id="retry" class="retry" onclick="Retry()">Retry</button>
+   
+   <br>
+      
+        </div>
+        
+
+     
+    </div>
+</body>
+<script type="text/javascript">
+    setTimeout(function Pre() {
+        document.getElementById("preloader").style.display = "none";
+        document.getElementById("main").style.display = "block";
+    }, 2000);
+
+
+var x;
+x=20
+function Int(){
+
+    x=20
+var timer=1000;
+ var inpVal = document.getElementById("inpV").value;
+                var textArray =[
+             "I can do it.",
+            "Typing is fun and easy.",
+            "The best typing tutorial.",
+            "listen to advice.",
+            "you need to call for help.",
+            "Practice makes man perfect.",
+            "1#2$3&5*+6-",
+            "Focus, just focus.",
+            "Hard does not mean impossible.",
+            "Read and write",
+            "Nothing goes waste",
+            "Keep quite!",
+            "1+2=3, but 1×2=2.",
+            "Never give up",
+            "ectaxonic",
+            "Don't Drink and Drive!",
+            "*567*1*1*1*2#",
+            "Respect Money -- Don't love it",
+            "Easy to type, easy to read."
+        ]
+        var pause=document.getElementById("pause")
+        var resume=document.getElementById("resume")
+        var random =Math.floor(Math.random() * textArray.length);
+     
+         var atxt = document.getElementById('a');
+        let input = document.getElementById("inpV");
+        let txt=document.getElementById("txt");
+        let timing=document.getElementById("x");
+        
+            pause.style.display="block"
+        pause.addEventListener("click",function(){
+      clearInterval(interval)
+     input.style.display="none"
+     resume.style.display="block"
+     pause.style.display="none"
+     
+     })      
+         
+         
+    resume.addEventListener("click", function(){
+        resume.style.display="none"
+        pause.style.display="block"
+        input.style.display="block"
+        resume.onclick=""
+        clearInterval(interval)
+        setTimeout(()=>{
+        setInterval(Int() , timer)
+        document.getElementById("inpV").style.display="block";
+        document.getElementById("inpV").focus();
+                input.style.color="black"
+      },1000)
+   
+    })     
+         
+    
+             
+    document.getElementById("a").innerHTML=textArray[random];
+    
+    
+var interval =setInterval(function(){
+    document.getElementById("x").innerHTML=x + "s";
+    x-=1;
+
+input.onclick=""
+
+    if(x<0){
+        clearInterval(interval)
+          input.style.display="none"
+          pause.style.display="none"
+        txt.style.display="none"
+        atxt.innerHTML="Failed! Time Up"
+        atxt.style.color="red"
+        timing.style.display="none"
+        document.getElementById("retry").style.display="block";
+ 
+    }
+    
+
+    
+     if(input.value == textArray[random]){
+        clearInterval(interval)
+        document.getElementById("inpV").style.display="none"
+     input.style.color="black"
+        setTimeout(()=>{
+        setInterval(Int() , timer)
+        document.getElementById("inpV").style.display="block";
+        document.getElementById("inpV").focus();
+                input.style.color="black"
+        input.value=""
+      },3000)
+    }
+    },timer)
+    
+    
+setTimeout(()=>{
+   var tyn =5000;
+    if(tyn >= 5000 && input.value ==textArray[random]){
+        clearInterval(interval)
+        pause.style.display="none"
+        document.getElementById("inpV").style.display="none";
+        atxt.innerHTML="Well done!";
+        timing.style.display="none";
+        txt.style.display="none";
+        alert("hsnnd")
+    }
+},5000)
+    
+
+
+}
+
+
+
+
+
+    function boD() {
+document.getElementById('time').innerHTML=x +" seconds";
+
+           var onced = localStorage.getItem("Onced");
+
+        if (onced != '1') {
+            alert("Welcome to Typing Studio");
+
+            alert("We are building up your tutorial. We need your information to build.")
+
+            var prm = prompt("How many words can you type in 30 sec?");
+
+            if (prm > 5) {
+                alert("Wow pretty cool.")
+            }
+            if (prm == null) {
+                alert("The input field was empty.")
+            } else {
+                alert("Nice")
+            }
+
+            var py = prompt("How best do you type. [slow or fast]").toLowerCase();
+            if (py == "slow") {
+                alert("Not bad")
+            }
+            if (py == "fast") {
+                alert("Super")
+            }
+            alert("You would be given a text to type within 20sec.");
+            var cnf = confirm("Are you ready!")
+
+            if (cnf == true) {
+                document.getElementById("main").style.display = "block";
+            } else {
+                document.getElementById("main").style.display = "none"
+            }
+            localStorage.setItem('Onced', '1')
+        }
+
+}
+
+
+    function Retry() {
+        window.location.reload()
+        document.getElementById("preloader").style.display="none"
+}
+
+</script>
+</html>

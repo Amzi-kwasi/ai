@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AL Assist</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    
+    	<div class="header">
+    		<center>
+    			<p>AL Assist</p>
+    		</center>
+    	</div>
+        <br>
+        <br>
+        <br>
+        <br>
+    
+    <!-- chatbox -->
+ 
+    <section id="chatbox">
+        <div class="ai-message">
+            <p id="aiwel">Hi</p>
+        </div>
+    
+    </section>
+
+
+<!-- can do -->
+    <section id="can-do">
+        <div class="do">
+            <a onclick="document.getElementById('can-do').style.display='none'">&times;</a>
+           <h5>How to use AL Assist better</h5>
+           <p>For AL to execute correctly type commands in lowercase only. The input field accept only lowercase letters.
+           Avoid the use of "." at the end of a sentence to allow execution.</p>
+
+<br/>
+           <p>Some commands you can type are:</p>
+           <ul>
+           </ul>
+        </div>
+
+    </section>
+
+
+<!-- userinput -->
+    <div class="userinput">
+        <input type="text" name="user" placeholder="Type here" id="userinput">
+        <button class="send" onclick="Send()">Send</button>
+    </div>
+</body>
+
+<script type="text/javascript" src="script.js"></script>
+
+<script type="text/javascript" src="alcmd.js"></script>
+
+</html>

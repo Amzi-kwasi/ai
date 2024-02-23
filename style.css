@@ -1,0 +1,114 @@
+*{
+	margin: 0;
+	border: 0;
+}
+
+body{
+	background: #1a1a1a;
+	color: white;
+}
+
+
+.header{
+	width: 100%;
+	padding: 10px 12px;
+	background: burlywood;
+	color: white;
+	position: fixed;
+	top: 0;
+	z-index: 99;
+}
+
+
+.ai-message{
+	width: 50%;
+	border-radius: 20px;
+	padding: 10px 12px;
+	background: teal;
+	height: auto;
+}
+
+.userinput{
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	display: flex;
+}
+
+.userinput input{
+	width: 90%;
+	padding: 10px 12px;
+	border-radius: 5px;
+	text-transform: lowercase;
+}
+
+.send{
+	padding: 10px 12px;
+	border-radius: 5px;
+	text-align: center;
+	border: none;
+	background: lightgreen;
+}
+
+.send:hover{
+	background: green;
+	color: white;
+}
+
+.user-message{
+	width: 50%;
+	border-radius: 20px;
+	padding: 10px 12px;
+	background: coral;
+position: absolute;
+right: 0;
+text-transform: lowercase;
+}
+
+
+#can-do{
+	width: 100%;
+	top: 0;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	z-index: 999;
+}
+
+.do{
+	background: white;
+	color: black;
+	width: 100%;
+	height: 90vh;
+	margin-left: 100px;
+	margin-right: 100px;
+	border-radius: 5px;
+	text-align: justify;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 18px;
+}
+
+#chatbox{
+	padding-bottom: 100px;
+}
+
+h5{
+	font-size: 25px;
+	line-height: 2.5rem;
+	color: orange;
+	text-align: center;
+}
+
+a{
+	cursor: pointer;
+}
+
+ul ,li{
+	text-decoration: none;
+}
