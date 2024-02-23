@@ -172,6 +172,26 @@ setTimeout(()=>{
 }
 
 
+else if(usertext == "what can you do" ||usertext=="fine"||usertext=="what can u do"|| usertext == "so, what can you do"){
+var aitext="..."
+
+document.getElementbyId("can-do").style.display=""
+setTimeout(()=>{
+    chatbox.innerHTML +=`
+ <br/>
+ <div class="ai-message">
+            <p>${aitext}</p>
+        </div>
+        <br/>
+        `
+   
+    },1000)
+
+}
+
+
+
+
 
 else if(usertext =="red"||usertext=="aliceblue"||usertext=="aqua"||usertext=="aquamarine"||usertext=="azure"||usertext=="beige"||usertext=="bisque"||usertext=="Pink"||usertext=="yellow"||usertext=="black"||usertext=="blue"||usertext=="burlywood"||usertext=="antiquewhite"||usertext=="blanchedalmond"||usertext=="blueviolet"||usertext=="brown"||usertext=="cyan"||usertext=="cornflowerblue"||usertext=="cadetblue"||usertext=="coral"||usertext=="darkgreen"||usertext=="darkolivegreen"||usertext=="chartreuse"||usertext=="chocolate"||usertext=="darkcyan"||usertext=="darkgoldenrod"||usertext=="darkblue"||usertext=="darkmagenta"||usertext=="darkkhaki"||usertext=="darkorchid"||usertext=="darkred"||usertext=="darksalmon"||usertext=="darkseagreen"||usertext=="deepskyblue"||usertext=="firebrick"||usertext=="dodgerblue"||usertext=="floralwhite"||usertext=="forestgreen"||usertext=="darkorange"||usertext=="darkturquoise"||usertext=="darkgrey"||usertext=="darkgray"||usertext=="deeppink"||usertext=="dimgray"||usertext=="darkorange"||usertext=="darkviolet"||usertext=="darkcyan"||usertext=="darkslategreen"||usertext=="fuchsia"||usertext=="gainsboro"||usertext=="ghostwhite"||usertext=="gold"||usertext=="goldenrod"||usertext=="orange"||usertext=="gray"||usertext=="grey"||usertext=="green"||usertext=="greenyellow"||usertext=="honeydew"||usertext=="hotpink"||usertext=="indianred"||usertext=="indigo"||usertext=="darkslategray"||usertext=="Lawngreen"||usertext=="lemonchiffon"||usertext=="lightblue"||usertext=="lightcoral"||usertext=="lightcyan"||usertext=="lightgoldenrodyellow"||usertext=="lightgreen"||usertext=="lightpink"||usertext=="lightsalmon"||usertext=="lightskyblue"||usertext=="lightseagreen"||usertext=="lightsteelblue"||usertext=="lightslategrey"||usertext=="lightyellow"||usertext=="lime"||usertext=="limegreen"||usertext=="linen"||usertext=="maroon"||usertext=="mediumaquamarine"||usertext=="mediumblue"||usertext=="mediumorchid"||usertext=="mediumpurple"||usertext=="mediumseagreen"||usertext=="mediumspringgreen"||usertext=="mediumturquoise"||usertext=="mediumvioletred"||usertext=="midnightblue"||usertext=="mintcream"||usertext=="mistyrose"||usertext=="moccasin"||usertext=="navajowhite"||usertext=="oldlace"||usertext=="olive"||usertext=="olivedrab"||usertext=="orangered"||usertext=="orchid"||usertext=="palegoldenrod"||usertext=="paleturquoise"||usertext=="navy"||usertext=="papayawhip"||usertext=="palevioletred"||usertext=="peachpuff"||usertext=="peru"||usertext=="pink"||usertext=="plum"||usertext=="powderblue"||usertext=="purple"||usertext=="rebeccapurple"||usertext=="rosybrown"||usertext=="royalblue"||usertext=="saddlebrown"||usertext=="salmon"||usertext=="sandybrown"||usertext=="seagreen"||usertext=="seashell"||usertext=="sienna"||usertext=="silver"||usertext=="skyblue"||usertext=="slateblue"||usertext=="slategray"||usertext=="slategrey"||usertext=="snow"||usertext=="springgreen"||usertext=="steelblue"||usertext=="tan"||usertext=="teal"||usertext=="thistle"||usertext=="tomato"||usertext=="turquoise"||usertext=="violet"||usertext=="wheat"||usertext=="white"||usertext=="whitesmoke"||usertext=="yellowgreen"||usertext=="lavender"||usertext=="lavenderblush"||usertext=="ivory"
 ){
@@ -556,6 +576,22 @@ setTimeout(()=>{
 
 }
 
+
+else if(usertext == "what is your name" ||usertext=="your name"||usertext=="name"|| usertext == "i am fyn"){
+var aitext="I am called AL Assist"
+
+setTimeout(()=>{
+    chatbox.innerHTML +=`
+ <br/>
+ <div class="ai-message">
+            <p>${aitext}</p>
+        </div>
+        <br/>
+        `
+   
+    },1000)
+
+}
 
 
 
