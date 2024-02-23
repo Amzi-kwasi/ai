@@ -2,7 +2,7 @@ var userinput=document.getElementById("userinput");
 
 var chatbox=document.getElementById("chatbox");
 
-
+userinput.toLowerCase();
 
 // var name =prompt("Your Name");
 

@@ -155,7 +155,7 @@ setTimeout(()=>{
     },1000)
 
 }
-else if(usertext == "i am fine" || usertext == "i am fyn"){
+else if(usertext == "i am fine" ||usertext=="fine"||usertext=="fyn"|| usertext == "i am fyn"){
 var aitext="How can I help you"
 
 setTimeout(()=>{
